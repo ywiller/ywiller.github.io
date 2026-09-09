@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火影同人漫画-火影同人漫画精选推荐与阅读指南</title>
+    <meta name="description" content="火影同人漫画爱好者聚集地，提供火影同人漫画精选推荐、分类导航、阅读指南与常见问题解答，帮助你快速找到心仪的火影忍者同人作品。">
+    <meta name="keywords" content="火影同人漫画,火影同人,火影忍者同人,同人漫画推荐,火影同人阅读">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f0e8;
+            color: #2c2c2c;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 页眉 */
+        .site-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 20px 0;
+            border-bottom: 4px solid #e94560;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand-logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #f5a623;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+        .brand-logo span {
+            color: #e94560;
+        }
+        .brand-tagline {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            border-left: 2px solid #e94560;
+            padding-left: 12px;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .brand-tagline {
+                display: block;
+            }
+        }
+
+        /* 导航 */
+        .main-nav {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+        }
+        .main-nav a:hover, .main-nav a.active {
+            background: #e94560;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        /* 首屏 */
+        .hero {
+            background: linear-gradient(160deg, #0f3460 0%, #16213e 60%, #1a1a2e 100%);
+            color: #fff;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+        .hero h1 .highlight {
+            color: #f5a623;
+            border-bottom: 3px solid #e94560;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background: #e94560;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+        }
+        .btn-primary:hover {
+            background: #d63851;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(233, 69, 96, 0.5);
+        }
+        .btn-outline {
+            border-color: rgba(255,255,255,0.6);
+            color: #fff;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: #fff;
+        }
+
+        /* 特色信息条 */
+        .feature-bar {
+            background: #fff;
+            border-bottom: 1px solid #e8e0d5;
+            padding: 25px 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .feature-item .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .feature-item h3 {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .feature-item p {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* 通用 section */
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #e94560;
+            border-radius: 4px;
+        }
+        .section-title p {
+            color: #777;
+            margin-top: 12px;
+            font-size: 1rem;
+        }
+
+        /* 分类卡片 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .category-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: all 0.35s ease;
+            border: 1px solid #f0e8dc;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .category-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #e94560, #f5a623);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+        .category-card .cat-icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .category-card h3 {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .category-card p {
+            font-size: 0.92rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .category-card .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        .category-card .tag-list span {
+            background: #f5f0e8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* 作品展示 */
+        .manga-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+        .manga-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.35s ease;
+            border: 1px solid #f0e8dc;
+        }
+        .manga-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        .manga-cover {
+            height: 180px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+        }
+        .manga-cover.alt1 {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
+        .manga-cover.alt2 {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        }
+        .manga-cover.alt3 {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+        .manga-cover.alt4 {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        .manga-cover .cover-emoji {
+            filter: drop-shadow(4px 6px 8px rgba(0,0,0,0.2));
+        }
+        .manga-info {
+            padding: 20px;
+        }
+        .manga-info h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .manga-info .meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+        .manga-info .meta span {
+            background: #f5f0e8;
+            padding: 2px 10px;
+            border-radius: 12px;
+        }
+        .manga-info p {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 阅读指南 */
+        .guide-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .guide-step {
+            text-align: center;
+            padding: 20px;
+            border-radius: 16px;
+            background: #faf7f2;
+            transition: all 0.3s ease;
+        }
+        .guide-step:hover {
+            background: #f0e8dc;
+            transform: translateY(-4px);
+        }
+        .step-num {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            background: #e94560;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .guide-step h4 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+        .guide-step p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* 注意事项 */
+        .notice-box {
+            background: #fff8f0;
+            border-left: 5px solid #f5a623;
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 30px;
+        }
+        .notice-box h3 {
+            color: #b8860b;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .notice-box ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+        .notice-box li {
+            color: #555;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 14px;
+            padding: 25px 30px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            border: 1px solid #f0e8dc;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transform: translateX(4px);
+        }
+        .faq-item h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-item h3::before {
+            content: "Q";
+            background: #e94560;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .faq-item p {
+            color: #555;
+            font-size: 0.95rem;
+            padding-left: 38px;
+        }
+
+        /* 相关主题 */
+        .related-topics {
+            background: #1a1a2e;
+            padding: 50px 0;
+            border-radius: 30px;
+            margin-top: 30px;
+        }
+        .related-topics .section-title h2 {
+            color: #fff;
+        }
+        .related-topics .section-title h2::after {
+            background: #f5a623;
+        }
+        .related-topics .section-title p {
+            color: rgba(255,255,255,0.6);
+        }
+        .topic-chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 0 20px;
+        }
+        .topic-chip {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .topic-chip:hover {
+            background: #e94560;
+            border-color: #e94560;
+            transform: translateY(-3px);
+        }
+
+        /* 页脚 */
+        .site-footer {
+            background: #0f0f1a;
+            color: rgba(255,255,255,0.6);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-brand h3 {
+            color: #f5a623;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+        .footer-links h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+        .footer-links ul li a {
+            color: rgba(255,255,255,0.6);
+            transition: all 0.3s;
+        }
+        .footer-links ul li a:hover {
+            color: #f5a623;
+            padding-left: 5px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .main-nav {
+                justify-content: center;
+                margin-top: 10px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .guide-section {
+                padding: 25px;
+            }
+            .faq-item p {
+                padding-left: 0;
+                margin-top: 8px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .category-card, .manga-card {
+                padding: 20px;
+            }
+            .manga-cover {
+                height: 150px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="brand-logo">火影<span>同人</span>社</div>
+            <div class="brand-tagline">发现最精彩的火影忍者同人漫画</div>
+        </div>
+        <nav class="main-nav">
+            <a href="#home" class="active">首页</a>
+            <a href="#categories">分类</a>
+            <a href="#recommend">精选推荐</a>
+            <a href="#guide">阅读指南</a>
+            <a href="#faq">常见问题</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- 首屏 -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>火影同人漫画<span class="highlight">精选推荐</span>与阅读指南</h1>
+            <p>深入探索火影忍者同人漫画的精彩世界，从热门CP到冒险续篇，我们为你筛选值得一读的火影同人作品，并提供实用的阅读建议与资源导航。</p>
+            <div class="hero-buttons">
+                <a href="#recommend" class="btn btn-primary">立即探索</a>
+                <a href="#guide" class="btn btn-outline">阅读指南</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色信息条 -->
+    <div class="feature-bar">
+        <div class="container feature-grid">
+            <div class="feature-item">
+                <div class="icon">🎯</div>
+                <h3>精准分类</h3>
+                <p>按CP、剧情、风格细分</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">📚</div>
+                <h3>丰富推荐</h3>
+                <p>涵盖各种热门题材</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">💡</div>
+                <h3>阅读指南</h3>
+                <p>快速找到适合你的作品</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🛡️</div>
+                <h3>版权提醒</h3>
+                <p>尊重原作与同人创作</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 分类导航 -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>同人漫画分类</h2>
+                <p>不同口味，总有一款适合你</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="cat-icon">💑</span>
+                    <h3>CP向同人</h3>
+                    <p>聚焦角色间的情感互动与关系发展，满足你对特定配对的想象。</p>
+                    <div class="tag-list">
+                        <span>佐鸣</span>
+                        <span>卡伊</span>
+                        <span>鼬佐</span>
+                        <span>宁雏</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">⚔️</span>
+                    <h3>战斗冒险</h3>
+                    <p>延续忍者世界的热血战斗，展开全新的任务与冒险篇章。</p>
+                    <div class="tag-list">
+                        <span>新任务</span>
+                        <span>强敌</span>
+                        <span>修炼</span>
+                        <span>忍界大战</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🌌</span>
+                    <h3>平行世界</h3>
+                    <p>设定在完全不同的世界观中，展开颠覆性的故事想象。</p>
+                    <div class="tag-list">
+                        <span>现代AU</span>
+                        <span>校园</span>
+                        <span>都市</span>
+                        <span>科幻</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">😄</span>
+                    <h3>轻松搞笑</h3>
+                    <p>日常搞笑向作品，放松心情，感受角色们的另一面。</p>
+                    <div class="tag-list">
+                        <span>日常</span>
+                        <span>Q版</span>
+                        <span>恶搞</span>
+                        <span>温馨</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🕰️</span>
+                    <h3>历史补完</h3>
+                    <p>补完原作中未详细展开的历史片段，深入挖掘角色背后的故事。</p>
+                    <div class="tag-list">
+                        <span>宇智波史</span>
+                        <span>木叶往事</span>
+                        <span>晓组织</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <span class="cat-icon">🎭</span>
+                    <h3>暗黑向</h3>
+                    <p>探讨深刻主题与复杂人性，呈现不同于原作的严肃剧情。</p>
+                    <div class="tag-list">
+                        <span>黑化</span>
+                        <span>阴谋</span>
+                        <span>悲剧</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选推荐 -->
+    <section class="section" id="recommend" style="background: #faf7f2;">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门作品推荐</h2>
+                <p>经过同好验证、口碑良好的火影同人漫画</p>
+            </div>
+            <div class="manga-list">
+                <article class="manga-card">
+                    <div class="manga-cover">
+                        <span class="cover-emoji">🌋</span>
+                    </div>
+                    <div class="manga-info">
+                        <h3>《鸣人新传：风起之时》</h3>
+                        <div class="meta">
+                            <span>冒险</span>
+                            <span>已完结</span>
+                        </div>
+                        <p>讲述第四次忍界大战后，鸣人作为七代目火影面临的新的挑战与成长故事，剧情紧接原作，风格热血。</p>
+                    </div>
+                </article>
+                <article class="manga-card">
+                    <div class="manga-cover alt1">
+                        <span class="cover-emoji">🌸</span>
+                    </div>
+                    <div class="manga-info">
+                        <h3>《宇智波家的日常》</h3>
+                        <div class="meta">
+                            <span>日常</span>
+                            <span>温馨</span>
+                        </div>
+                        <p>以宇智波佐助和佐良娜的父女互动为主线，穿插鼬的回忆，展现忍者世界中的家庭温情。</p>
+                    </div>
+                </article>
+                <article class="manga-card">
+                    <div class="manga-cover alt2">
+                        <span class="cover-emoji">🌙</span>
+                    </div>
+                    <div class="manga-info">
+                        <h3>《晓之影》</h3>
+                        <div class="meta">
+                            <span>暗黑</span>
+                            <span>剧情</span>
+                        </div>
+                        <p>深入探索晓组织成员背后的故事与理想，重新审视那些亦正亦邪的角色。</p>
+                    </div>
+                </article>
+                <article class="manga-card">
+                    <div class="manga-cover alt3">
+                        <span class="cover-emoji">⚡</span>
+                    </div>
+                    <div class="manga-info">
+                        <h3>《木叶高校奇谭》</h3>
+                        <div class="meta">
+                            <span>校园</span>
+                            <span>搞笑</span>
+                        </div>
+                        <p>将木叶忍者们置于现代高中校园，爆笑日常与友情故事交织，轻松解压。</p>
+                    </div>
+                </article>
+                <article class="manga-card">
+                    <div class="manga-cover alt4">
+                        <span class="cover-emoji">🌀</span>
+                    </div>
+                    <div class="manga-info">
+                        <h3>《风影与我爱罗传》</h3>
+                        <div class="meta">
+                            <span>成长</span>
+                            <span>治愈</span>
+                        </div>
+                        <p>讲述我爱罗从孤独的砂之少年成长为可靠风影的心路历程，同人画风细腻。</p>
+                    </div>
+                </article>
+                <article class="manga-card">
+                    <div class="manga-cover">
+                        <span class="cover-emoji">🔥</span>
+                    </div>
+                    <div class="manga-info">
+                        <h3>《火之意志继承者》</h3>
+                        <div class="meta">
+                            <span>热血</span>
+                            <span>长篇</span>
+                        </div>
+                        <p>以木叶新生代为主角的冒险故事，传承火之意志，展开新的传说。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 阅读指南 -->
+    <section class="section" id="guide">
+        <div class="container">
+            <div class="section-title">
+                <h2>同人漫画阅读指南</h2>
+                <p>从入门到精通，帮你快速找到心仪的作品</p>
+            </div>
+            <div class="guide-section">
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <span class="step-num">1</span>
+                        <h4>明确偏好</h4>
+                        <p>先确定自己喜欢的CP、题材或画风，缩小搜索范围。</p>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">2</span>
+                        <h4>浏览推荐</h4>
+                        <p>参考同好推荐列表与社区评分，了解作品口碑。</p>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">3</span>
+                        <h4>试读章节</h4>
+                        <p>先阅读前几话，感受剧情节奏与画面风格是否合口味。</p>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">4</span>
+                        <h4>关注更新</h4>
+                        <p>对连载中的作品，关注作者发布渠道或相关社区获取更新。</p>
+                    </div>
+                </div>
+                <div class="notice-box">
+                    <h3>📌 阅读注意事项</h3>
+                    <ul>
+                        <li>同人作品是粉丝基于原作的二次创作，请尊重作者劳动成果，支持正版。</li>
+                        <li>部分作品可能涉及成人化或敏感内容，请根据自身年龄与接受度谨慎选择。</li>
+                        <li>同人作品设定可能与原作存在差异，请以开放心态欣赏。</li>
+                        <li>在正规平台或作者授权渠道阅读，避免版权纠纷。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+                <p>关于火影同人漫画，你可能想知道的</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>什么是火影同人漫画？</h3>
+                    <p>火影同人漫画是指粉丝基于《火影忍者》原作中的人物、世界观或剧情框架，进行二次创作绘制的漫画作品。它们可能延续原作剧情，也可能展开平行世界或全新故事。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>同人漫画和官方漫画有什么区别？</h3>
+                    <p>官方漫画是由原作者岸本齐史或官方授权团队创作的正统续作或衍生作品。同人漫画则是由粉丝个人或团体自发创作，非官方出品，风格和剧情自由度更高，但不属于官方正史。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>在哪里可以找到火影同人漫画？</h3>
+                    <p>可以关注动漫同人社区、贴吧、微博超话等平台，一些同人作者会在Pixiv等创作平台发布作品。国内也有专门的同人漫画阅读网站或汉化组发布渠道。建议通过正规途径阅读。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>如何判断一部同人漫画是否适合自己？</h3>
+                    <p>可以先看作品标签与简介，确认CP和题材是否符合喜好。再看画风预览图，最后试读几页感受剧情节奏。也可以参考其他读者的评论和推荐语。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>同人漫画阅读是否涉及版权问题？</h3>
+                    <p>同人创作本身处于灰色地带，多数非商业性质的同人作品受到原作者或出版社的宽容对待。但读者应通过作者授权的渠道阅读，不传播盗版，支持创作者。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关主题 -->
+    <div class="container">
+        <div class="related-topics">
+            <div class="section-title">
+                <h2>延伸阅读主题</h2>
+                <p>继续探索火影同人世界的更多可能</p>
+            </div>
+            <div class="topic-chips">
+                <a href="#" class="topic-chip">火影忍者同人小说</a>
+                <a href="#" class="topic-chip">火影CP排行</a>
+                <a href="#" class="topic-chip">同人画师推荐</a>
+                <a href="#" class="topic-chip">博人传同人</a>
+                <a href="#" class="topic-chip">宇智波同人</a>
+                <a href="#" class="topic-chip">木叶日常同人</a>
+                <a href="#" class="topic-chip">火影穿越文</a>
+                <a href="#" class="topic-chip">同人漫画教程</a>
+                <a href="#" class="topic-chip">火影手书</a>
+                <a href="#" class="topic-chip">忍者CP向作品</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>火影同人社</h3>
+                <p>一个专注于火影忍者同人漫画推荐与分享的爱好者平台，致力于为同好们提供有价值的作品导览。</p>
+            </div>
+            <div class="footer-links">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#categories">漫画分类</a></li>
+                    <li><a href="#recommend">精选推荐</a></li>
+                    <li><a href="#guide">阅读指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>免责声明</h4>
+                <ul>
+                    <li><a href="#">版权说明</a></li>
+                    <li><a href="#">内容审核</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 火影同人社 版权所有 | 本页面为同人文化交流，非官方站点</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+  </html>
